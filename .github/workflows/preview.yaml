@@ -27,8 +27,7 @@ jobs:
       - name: Enable PR comments
         uses: thollander/actions-comment-pull-request@v2
         with:
-        
-          message: ｜
+          message: |
             您的项目已更新至最新
             | 项目|预览链接 |
             |---|---|

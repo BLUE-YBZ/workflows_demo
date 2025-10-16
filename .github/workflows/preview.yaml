@@ -28,6 +28,14 @@ jobs:
         uses: thollander/actions-comment-pull-request@v2
         with:
           message: |
-            🎉 感谢您提交拉取请求！您的贡献对我们至关重要。
-            我们会尽快进行审核。如果您有任何问题，请随时提出。
+            您的项目已更新至最新
+            | 项目|预览链接 |
+            |---|---|
+            | xxxx| ddddd|
+            | eeee| eeeee|
+            ｜
+
+
+            
+            
 

@@ -1,0 +1,36 @@
+# GitHub Actions工作流：Vercel预览部署
+# 此工作流在创建Pull Request时自动触发，将代码部署到Vercel进行预览
+name: GitHub Actions Preview Deployment
+
+# 触发条件：当有Pull Request事件时执行
+on:
+  push:
+  pull_request:
+
+
+   
+# 工作任务定义
+jobs:
+  # 部署预览任务
+  Deploy-Preview:
+    # 运行环境：使用最新版Ubuntu
+    runs-on: ubuntu-latest
+    steps:
+      # 步骤1：检出代码仓库
+      - uses: actions/checkout@v3
+      - name: write 
+        run: |
+          echo "VERCEL_ORG_ID=$VERCEL_ORG_ID" >> $GITHUB_ENV
+      # 在Github代码提价处允许评论
+      - name: Enable PR comments
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.pulls.createReview({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number,
+              event: 'COMMENT',
+              body: '✅ 评论功能已启用，欢迎进行代码审查和讨论！'
+            });
+

@@ -1,10 +1,7 @@
 # GitHub Actions工作流：Vercel预览部署
 # 此工作流在创建Pull Request时自动触发，将代码部署到Vercel进行预览
 name: GitHub Actions Preview Deployment
-token: ${{ secrets.GITHUB_TOKEN }}
-env:
-    GITHUB_TOKEN: ${{ secrets.JINKE_GITHUB_TOKEN }}
-    NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
 # 触发条件：当有Pull Request事件时执行
 on:
   pull_request_target:
